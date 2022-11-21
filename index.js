@@ -9,19 +9,21 @@ const port = 3000;
 
 app.use(express.json()); ///middleware por defecto en express
 
-const whiteList = ['http://localhost:8080', 'https://myapp.co']
-const options = {
-  origin: (origin, callback) => {
-    if(whiteList.includes(origin)) {
-      callback(null, true)
-    } else
-    {
-      callback(new Error('No permitido'))
-    }
-  }
-}
-app.use(cors(options)); ///cors() acepta cualquier dominio
+// const whiteList = ['http://localhost:8080', 'https://myapp.co']
+// const options = {
+//   origin: (origin, callback) => {
+//     if(whiteList.includes(origin)) {
+//       callback(null, true)
+//     } else
+//     {
+//       callback(new Error('No permitido'))
+//     }
+//   }
+// }
+///app.use(cors(options)); ///cors() acepta cualquier dominio
 ///cors para aceptar cualquier dominio que desee consumir nuestra api
+
+app.use(cors())
 
 app.get('/', (req, res) => { //Ruta por defecto o home
   res.send('Hola mundo')
