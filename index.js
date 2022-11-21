@@ -26,7 +26,7 @@ app.use(express.json()); ///middleware por defecto en express
 app.use(cors())
 
 app.get('/', (req, res) => { //Ruta por defecto o home
-  res.send('Hola mundo')
+  res.send('Puedes visitar los endpoints: /api/v1/products , /api/v1/users, /api/v1/categories')
 })
 
 routerApi(app)
